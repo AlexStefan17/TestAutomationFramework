@@ -5,18 +5,32 @@ class Price:
     def __init__(self, driver):
         self.driver = driver
 
-    username = (By.XPATH, "//input[@id='user-name']")
-    password = (By.XPATH, "//input[@id='password']")
-    button = (By.XPATH, "//input[@id='login-button']")
-    locked_error = (By.CSS_SELECTOR, "h3[data-test='error']")
-    def get_username(self):
-        return self.driver.find_element(*Login.username)
+    items = (By.XPATH, "//div[@class='inventory_item']")
+    price_element = (By.XPATH, ".//div[@class='inventory_item_price']")
+    cart_button = (By.XPATH, ".//button[@class='btn btn_primary btn_small btn_inventory']")
+    element_name = (By.XPATH, ".//div[@class='inventory_item_name']")
+    element_link = (By.XPATH, ".//a[@href='#']")
+    price_element_page = (By.XPATH, "//div[@class='inventory_details_price']")
 
-    def get_password(self):
-        return self.driver.find_element(*Login.password)
+    def get_prices(self):
+        return self.driver.find_elements(*Price.items)
 
-    def login_button(self):
-        return self.driver.find_element(*Login.button)
+    def get_price_element(self, index):
+        elements = self.get_prices()
+        return elements[index].find_element(*Price.price_element).text
 
-    def get_locked(self):
-        return self.driver.find_element(*Login.locked_error)
+    def add_to_cart(self, index):
+        elements = self.get_prices()
+        return elements[index].find_element(*Price.cart_button).click()
+
+    def get_element_name(self, index):
+        elements = self.get_prices()
+        return elements[index].find_element(*Price.element_name).text
+
+    def get_element_link(self, index):
+        elements = self.get_prices()
+        return elements[index].find_element(*Price.element_link).click()
+
+    def get_element_price_page(self):
+        return self.driver.find_element(*Price.price_element_page).text
+

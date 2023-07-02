@@ -253,10 +253,10 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 25-Jun-2023 at 15:01:17 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 02-Jul-2023 at 23:43:03 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Summary</h2>
-    <p>4 tests ran in 10.46 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">4 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>9 tests ran in 64.79 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">8 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -267,11 +267,69 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">tests/test_price_problem.py::TestPrice::test_price[get_data0]</td>
+          <td class="col-duration">3.95</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="tests/test_price_problem.py_TestPrice_test_price[get_data0].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log">self = &lt;tests.test_price_problem.TestPrice object at 0x7fee88573910&gt;<br/>get_data = {&#x27;password&#x27;: &#x27;secret_sauce&#x27;, &#x27;username&#x27;: &#x27;problem_user&#x27;}<br/><br/>    def test_price(self, get_data):<br/>        log = super().get_logger()<br/>        prices = Price(self.driver)<br/>    <br/>        # Login step<br/>        log.info(&quot;##### 1. Login step #####&quot;)<br/>    <br/>        login_page = Login(self.driver)<br/>        log.info(f&quot;Username is {get_data[&#x27;username&#x27;]}&quot;)<br/>        login_page.get_username().send_keys(get_data[&quot;username&quot;])<br/>        log.info(f&quot;Password is {get_data[&#x27;password&#x27;]}&quot;)<br/>        login_page.get_password().send_keys(get_data[&quot;password&quot;])<br/>        login_page.login_button().click()<br/>        url = super().get_url()<br/>        assert &quot;https://www.saucedemo.com/inventory.html&quot; == url, &quot;Login failed&quot;<br/>        log.info(&quot;Login is pass&quot;)<br/>    <br/>        # Price step<br/>        log.info(&quot;##### 2. Price step from items page #####&quot;)<br/>    <br/>        log.info(&quot;Calculate total price&quot;)<br/>        items = prices.get_prices()<br/>        price_sum = sum(<br/>            [float(item.find_element(By.XPATH, &quot;.//div[@class=&#x27;inventory_item_price&#x27;]&quot;).text[1:]) for item in items])<br/>        log.info(f&quot;All elements price is {price_sum}&quot;)<br/>    <br/>        log.info(&quot;##### 3. Price step from each item page and add to cart #####&quot;)<br/>        list_price = []<br/>        price, item_price = None, None<br/>        for item, index in enumerate(range(len(items))):<br/>            try:<br/>                elements = prices.get_prices()<br/>                price = prices.get_price_element(index)<br/>                price = float(price[1::])<br/>                prices.add_to_cart(index)<br/>                element_name = prices.get_element_name(index)<br/>                prices.get_element_link(index)<br/>                item_price = prices.get_element_price_page()<br/>                log.info(f&quot;Element name = {element_name} and price {item_price}&quot;)<br/>                log.info(f&quot;Price from main page {price} vs, price on item page {item_price}&quot;)<br/>                list_price.append(float(item_price[1::]))<br/>                assert price == float(item_price[1::])<br/>                self.driver.execute_script(&quot;window.history.go(-1)&quot;)<br/>            except ValueError:<br/>                log.error(&quot;Error: Failed to convert price to float&quot;)<br/>                self.driver.execute_script(&quot;window.history.go(-1)&quot;)<br/>            except NoSuchElementException:<br/>                log.error(&quot;Error: Element not found&quot;)<br/>                self.driver.execute_script(&quot;window.history.go(-1)&quot;)<br/>            except AssertionError:<br/>                log.error(f&quot;Assertion failed: Expected price {price}, Actual price {float(item_price[1:])}&quot;)<br/>                self.driver.execute_script(&quot;window.history.go(-1)&quot;)<br/>        sum_list_price = sum(list_price)<br/>    <br/>        try:<br/>            assert price_sum == sum_list_price<br/>            log.info(f&quot;Price sum {price_sum} == sum_list price {sum_list_price}&quot;)<br/>        except AssertionError as e:<br/>            log.error(f&quot;Assertion failed: Expected sum {price_sum}, Actual price {sum_list_price}&quot;)<br/>&gt;           raise e<br/><br/>tests/test_price_problem.py:78: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;tests.test_price_problem.TestPrice object at 0x7fee88573910&gt;<br/>get_data = {&#x27;password&#x27;: &#x27;secret_sauce&#x27;, &#x27;username&#x27;: &#x27;problem_user&#x27;}<br/><br/>    def test_price(self, get_data):<br/>        log = super().get_logger()<br/>        prices = Price(self.driver)<br/>    <br/>        # Login step<br/>        log.info(&quot;##### 1. Login step #####&quot;)<br/>    <br/>        login_page = Login(self.driver)<br/>        log.info(f&quot;Username is {get_data[&#x27;username&#x27;]}&quot;)<br/>        login_page.get_username().send_keys(get_data[&quot;username&quot;])<br/>        log.info(f&quot;Password is {get_data[&#x27;password&#x27;]}&quot;)<br/>        login_page.get_password().send_keys(get_data[&quot;password&quot;])<br/>        login_page.login_button().click()<br/>        url = super().get_url()<br/>        assert &quot;https://www.saucedemo.com/inventory.html&quot; == url, &quot;Login failed&quot;<br/>        log.info(&quot;Login is pass&quot;)<br/>    <br/>        # Price step<br/>        log.info(&quot;##### 2. Price step from items page #####&quot;)<br/>    <br/>        log.info(&quot;Calculate total price&quot;)<br/>        items = prices.get_prices()<br/>        price_sum = sum(<br/>            [float(item.find_element(By.XPATH, &quot;.//div[@class=&#x27;inventory_item_price&#x27;]&quot;).text[1:]) for item in items])<br/>        log.info(f&quot;All elements price is {price_sum}&quot;)<br/>    <br/>        log.info(&quot;##### 3. Price step from each item page and add to cart #####&quot;)<br/>        list_price = []<br/>        price, item_price = None, None<br/>        for item, index in enumerate(range(len(items))):<br/>            try:<br/>                elements = prices.get_prices()<br/>                price = prices.get_price_element(index)<br/>                price = float(price[1::])<br/>                prices.add_to_cart(index)<br/>                element_name = prices.get_element_name(index)<br/>                prices.get_element_link(index)<br/>                item_price = prices.get_element_price_page()<br/>                log.info(f&quot;Element name = {element_name} and price {item_price}&quot;)<br/>                log.info(f&quot;Price from main page {price} vs, price on item page {item_price}&quot;)<br/>                list_price.append(float(item_price[1::]))<br/>                assert price == float(item_price[1::])<br/>                self.driver.execute_script(&quot;window.history.go(-1)&quot;)<br/>            except ValueError:<br/>                log.error(&quot;Error: Failed to convert price to float&quot;)<br/>                self.driver.execute_script(&quot;window.history.go(-1)&quot;)<br/>            except NoSuchElementException:<br/>                log.error(&quot;Error: Element not found&quot;)<br/>                self.driver.execute_script(&quot;window.history.go(-1)&quot;)<br/>            except AssertionError:<br/>                log.error(f&quot;Assertion failed: Expected price {price}, Actual price {float(item_price[1:])}&quot;)<br/>                self.driver.execute_script(&quot;window.history.go(-1)&quot;)<br/>        sum_list_price = sum(list_price)<br/>    <br/>        try:<br/>&gt;           assert price_sum == sum_list_price<br/><span class="error">E           assert 129.94 == 119.94999999999999</span><br/><br/>tests/test_price_problem.py:74: AssertionError<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     test_price:test_price_problem.py:24 ##### 1. Login step #####
+INFO     test_price:test_price_problem.py:27 Username is problem_user
+INFO     test_price:test_price_problem.py:29 Password is secret_sauce
+INFO     test_price:test_price_problem.py:34 Login is pass
+INFO     test_price:test_price_problem.py:37 ##### 2. Price step from items page #####
+INFO     test_price:test_price_problem.py:39 Calculate total price
+INFO     test_price:test_price_problem.py:43 All elements price is 129.94
+INFO     test_price:test_price_problem.py:45 ##### 3. Price step from each item page and add to cart #####
+INFO     test_price:test_price_problem.py:57 Element name = Sauce Labs Backpack and price $49.99
+INFO     test_price:test_price_problem.py:58 Price from main page 29.99 vs, price on item page $49.99
+ERROR    test_price:test_price_problem.py:69 Assertion failed: Expected price 29.99, Actual price 49.99
+INFO     test_price:test_price_problem.py:57 Element name = Sauce Labs Bike Light and price $15.99
+INFO     test_price:test_price_problem.py:58 Price from main page 9.99 vs, price on item page $15.99
+ERROR    test_price:test_price_problem.py:69 Assertion failed: Expected price 9.99, Actual price 15.99
+INFO     test_price:test_price_problem.py:57 Element name = Sauce Labs Bolt T-Shirt and price $7.99
+INFO     test_price:test_price_problem.py:58 Price from main page 15.99 vs, price on item page $7.99
+ERROR    test_price:test_price_problem.py:69 Assertion failed: Expected price 15.99, Actual price 7.99
+INFO     test_price:test_price_problem.py:57 Element name = Sauce Labs Fleece Jacket and price $√-1
+INFO     test_price:test_price_problem.py:58 Price from main page 49.99 vs, price on item page $√-1
+ERROR    test_price:test_price_problem.py:63 Error: Failed to convert price to float
+INFO     test_price:test_price_problem.py:57 Element name = Sauce Labs Onesie and price $15.99
+INFO     test_price:test_price_problem.py:58 Price from main page 7.99 vs, price on item page $15.99
+ERROR    test_price:test_price_problem.py:69 Assertion failed: Expected price 7.99, Actual price 15.99
+INFO     test_price:test_price_problem.py:57 Element name = Test.allTheThings() T-Shirt (Red) and price $29.99
+INFO     test_price:test_price_problem.py:58 Price from main page 15.99 vs, price on item page $29.99
+ERROR    test_price:test_price_problem.py:69 Assertion failed: Expected price 15.99, Actual price 29.99
+ERROR    test_price:test_price_problem.py:77 Assertion failed: Expected sum 129.94, Actual price 119.94999999999999<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_login_incorrect_password.py::TestLogin::test_standard_login[get_data0]</td>
+          <td class="col-duration">2.44</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     test_standard_login:test_login_incorrect_password.py:18 Username is incorrect
+INFO     test_standard_login:test_login_incorrect_password.py:20 Password is secret_sauce
+INFO     test_standard_login:test_login_incorrect_password.py:25 Login is locked<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_login_incorrect_username.py::TestLogin::test_standard_login[get_data0]</td>
+          <td class="col-duration">2.10</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     test_standard_login:test_login_incorrect_username.py:18 Username is incorrect
+INFO     test_standard_login:test_login_incorrect_username.py:20 Password is secret_sauce
+INFO     test_standard_login:test_login_incorrect_username.py:25 Login is locked<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/test_login_locked.py::TestLogin::test_standard_login[get_data0]</td>
-          <td class="col-duration">2.84</td>
+          <td class="col-duration">2.17</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -281,19 +339,20 @@ INFO     test_standard_login:test_login_locked.py:25 Login is locked<br/></div><
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_login_perforance.py::TestLogin::test_standard_login[get_data0]</td>
-          <td class="col-duration">2.43</td>
+          <td class="col-name">tests/test_login_performance.py::TestPrice::test_price[get_data0]</td>
+          <td class="col-duration">7.06</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     test_standard_login:test_login_perforance.py:18 Username is standard_user
-INFO     test_standard_login:test_login_perforance.py:20 Password is secret_sauce
-INFO     test_standard_login:test_login_perforance.py:25 Login is pass<br/></div></td></tr></tbody>
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     test_price:test_login_performance.py:22 ##### 1. Login step #####
+INFO     test_price:test_login_performance.py:25 Username is performance_glitch_user
+INFO     test_price:test_login_performance.py:27 Password is secret_sauce
+INFO     test_price:test_login_performance.py:32 Login is pass<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/test_login_problem.py::TestLogin::test_standard_login[get_data0]</td>
-          <td class="col-duration">2.62</td>
+          <td class="col-duration">2.38</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -304,10 +363,68 @@ INFO     test_standard_login:test_login_problem.py:25 Login is pass<br/></div></
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/test_login_standard.py::TestLogin::test_standard_login[get_data0]</td>
-          <td class="col-duration">2.50</td>
+          <td class="col-duration">2.18</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     test_standard_login:test_login_standard.py:18 Username is standard_user
 INFO     test_standard_login:test_login_standard.py:20 Password is secret_sauce
-INFO     test_standard_login:test_login_standard.py:25 Login is pass<br/></div></td></tr></tbody></table></body></html>
+INFO     test_standard_login:test_login_standard.py:25 Login is pass<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_price_performance.py::TestPrice::test_price[get_data0]</td>
+          <td class="col-duration">38.72</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     test_price:test_price_performance.py:24 ##### 1. Login step #####
+INFO     test_price:test_price_performance.py:27 Username is performance_glitch_user
+INFO     test_price:test_price_performance.py:29 Password is secret_sauce
+INFO     test_price:test_price_performance.py:34 Login is pass
+INFO     test_price:test_price_performance.py:37 ##### 2. Price step from items page #####
+INFO     test_price:test_price_performance.py:39 Calculate total price
+INFO     test_price:test_price_performance.py:43 All elements price is 129.94
+INFO     test_price:test_price_performance.py:45 ##### 3. Price step from each item page and add to cart #####
+INFO     test_price:test_price_performance.py:57 Element name = Sauce Labs Backpack and price $29.99
+INFO     test_price:test_price_performance.py:58 Price from main page 29.99 vs, price on item page $29.99
+INFO     test_price:test_price_performance.py:57 Element name = Sauce Labs Bike Light and price $9.99
+INFO     test_price:test_price_performance.py:58 Price from main page 9.99 vs, price on item page $9.99
+INFO     test_price:test_price_performance.py:57 Element name = Sauce Labs Bolt T-Shirt and price $15.99
+INFO     test_price:test_price_performance.py:58 Price from main page 15.99 vs, price on item page $15.99
+INFO     test_price:test_price_performance.py:57 Element name = Sauce Labs Fleece Jacket and price $49.99
+INFO     test_price:test_price_performance.py:58 Price from main page 49.99 vs, price on item page $49.99
+INFO     test_price:test_price_performance.py:57 Element name = Sauce Labs Onesie and price $7.99
+INFO     test_price:test_price_performance.py:58 Price from main page 7.99 vs, price on item page $7.99
+INFO     test_price:test_price_performance.py:57 Element name = Test.allTheThings() T-Shirt (Red) and price $15.99
+INFO     test_price:test_price_performance.py:58 Price from main page 15.99 vs, price on item page $15.99
+INFO     test_price:test_price_performance.py:75 Price sum 129.94 == sum_list price 129.94<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_price_standard.py::TestPrice::test_price[get_data0]</td>
+          <td class="col-duration">3.47</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     test_price:test_price_standard.py:24 ##### 1. Login step #####
+INFO     test_price:test_price_standard.py:27 Username is standard_user
+INFO     test_price:test_price_standard.py:29 Password is secret_sauce
+INFO     test_price:test_price_standard.py:34 Login is pass
+INFO     test_price:test_price_standard.py:37 ##### 2. Price step from items page #####
+INFO     test_price:test_price_standard.py:39 Calculate total price
+INFO     test_price:test_price_standard.py:43 All elements price is 129.94
+INFO     test_price:test_price_standard.py:45 ##### 3. Price step from each item page and add to cart #####
+INFO     test_price:test_price_standard.py:57 Element name = Sauce Labs Backpack and price $29.99
+INFO     test_price:test_price_standard.py:58 Price from main page 29.99 vs, price on item page $29.99
+INFO     test_price:test_price_standard.py:57 Element name = Sauce Labs Bike Light and price $9.99
+INFO     test_price:test_price_standard.py:58 Price from main page 9.99 vs, price on item page $9.99
+INFO     test_price:test_price_standard.py:57 Element name = Sauce Labs Bolt T-Shirt and price $15.99
+INFO     test_price:test_price_standard.py:58 Price from main page 15.99 vs, price on item page $15.99
+INFO     test_price:test_price_standard.py:57 Element name = Sauce Labs Fleece Jacket and price $49.99
+INFO     test_price:test_price_standard.py:58 Price from main page 49.99 vs, price on item page $49.99
+INFO     test_price:test_price_standard.py:57 Element name = Sauce Labs Onesie and price $7.99
+INFO     test_price:test_price_standard.py:58 Price from main page 7.99 vs, price on item page $7.99
+INFO     test_price:test_price_standard.py:57 Element name = Test.allTheThings() T-Shirt (Red) and price $15.99
+INFO     test_price:test_price_standard.py:58 Price from main page 15.99 vs, price on item page $15.99
+INFO     test_price:test_price_standard.py:75 Price sum 129.94 == sum_list price 129.94<br/></div></td></tr></tbody></table></body></html>

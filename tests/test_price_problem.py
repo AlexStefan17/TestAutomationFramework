@@ -4,6 +4,7 @@ import pytest
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
+from PageObjects.Price import Price
 from TestData.Login import LoginData
 from utilities.BaseClass import BaseClass
 from PageObjects.Login import Login
@@ -17,6 +18,7 @@ class TestPrice(BaseClass):
 
     def test_price(self, get_data):
         log = super().get_logger()
+        prices = Price(self.driver)
 
         # Login step
         log.info("##### 1. Login step #####")
@@ -35,7 +37,7 @@ class TestPrice(BaseClass):
         log.info("##### 2. Price step from items page #####")
 
         log.info("Calculate total price")
-        items = self.driver.find_elements(By.XPATH, "//div[@class='inventory_item']")
+        items = prices.get_prices()
         price_sum = sum(
             [float(item.find_element(By.XPATH, ".//div[@class='inventory_item_price']").text[1:]) for item in items])
         log.info(f"All elements price is {price_sum}")
@@ -45,14 +47,13 @@ class TestPrice(BaseClass):
         price, item_price = None, None
         for item, index in enumerate(range(len(items))):
             try:
-                elements = self.driver.find_elements(By.XPATH, "//div[@class='inventory_item']")
-                price = elements[index].find_element(By.XPATH, ".//div[@class='inventory_item_price']").text
+                elements = prices.get_prices()
+                price = prices.get_price_element(index)
                 price = float(price[1::])
-                elements[index].find_element(By.XPATH,
-                                             ".//button[@class='btn btn_primary btn_small btn_inventory']").click()
-                element_name = elements[index].find_element(By.XPATH, ".//div[@class='inventory_item_name']").text
-                elements[index].find_element(By.XPATH, ".//a[@href='#']").click()
-                item_price = self.driver.find_element(By.XPATH, "//div[@class='inventory_details_price']").text
+                prices.add_to_cart(index)
+                element_name = prices.get_element_name(index)
+                prices.get_element_link(index)
+                item_price = prices.get_element_price_page()
                 log.info(f"Element name = {element_name} and price {item_price}")
                 log.info(f"Price from main page {price} vs, price on item page {item_price}")
                 list_price.append(float(item_price[1::]))
