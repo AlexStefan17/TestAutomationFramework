@@ -12,6 +12,10 @@ class LoginData:
         {"username": "problem_user", "password": "secret_sauce"}
     ]
 
+    test_Performance_Login_data = [
+        {"username": "performance_glitch_user", "password": "secret_sauce"}
+    ]
+
     test_incorrect_username_Login_data = [
         {"username": "incorrect", "password": "secret_sauce"}
     ]
