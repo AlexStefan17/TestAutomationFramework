@@ -19,6 +19,7 @@ class TestOrderProblem(BaseClass):
 
     def test_order(self, get_data):
         log = super().get_logger()
+        log_error_messages = []
         prices = Price(self.driver)
         ordered_A_Z = ['Sauce Labs Backpack', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt',
                         'Sauce Labs Fleece Jacket', 'Sauce Labs Onesie', 'Test.allTheThings() T-Shirt (Red)']
@@ -58,34 +59,32 @@ class TestOrderProblem(BaseClass):
                 list_prices.append(float(price[1::]))
 
             if index == 0:
-                log.info("A-Z order")
-                try:
-                    assert ordered_A_Z == list_elements
-                    log.info(f"Items name are ordered correctly")
-                except AssertionError as e:
-                    log.error(f"Order incorrectly")
-                    raise e
+                if ordered_A_Z == list_elements:
+                    log.info(f"Items name are ordered correctly A-Z order")
+                else:
+                    error_message = "Order incorrectly A-Z order"
+                    log.error(error_message)
+                    log_error_messages.append(error_message)
             elif index == 1:
-                log.info("Z-A order")
-                try:
-                    assert ordered_Z_A == list_elements
-                    log.info(f"Items name are ordered correctly")
-                except AssertionError as e:
-                    log.error(f"Order incorrectly")
-                    raise e
+                if ordered_Z_A == list_elements:
+                    log.info(f"Items name are ordered correctly Z-A order")
+                else:
+                    error_message = "Order incorrectly Z-A order"
+                    log.error(error_message)
+                    log_error_messages.append(error_message)
             elif index == 2:
-                log.info("Price order low to high")
-                try:
-                    assert ordered_price == list_prices
-                    log.info(f"Price order is correctly")
-                except AssertionError as e:
-                    log.error(f"Order incorrectly")
-                    raise e
+                if ordered_price == list_prices:
+                    log.info(f"Items name are ordered correctly Low to High")
+                else:
+                    error_message = "Order incorrectly Low to High"
+                    log.error(error_message)
+                    log_error_messages.append(error_message)
             elif index == 3:
-                log.info("Price order high to low")
-                try:
-                    assert ordered_price_reverse == list_prices
-                    log.info(f"Items name are ordered correctly")
-                except AssertionError as e:
-                    log.error(f"Order incorrectly")
-                    raise e
+                if ordered_price_reverse == list_prices:
+                    log.info(f"Items name are ordered correctly High to Low")
+                else:
+                    error_message = "Order incorrectly High to Low"
+                    log.error(error_message)
+                    log_error_messages.append(error_message)
+
+        assert len(log_error_messages) == 0, f"Error log found: {log_error_messages}"
