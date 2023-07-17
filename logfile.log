@@ -1165,3 +1165,317 @@
 2023-07-02 23:43:03,557 :INFO :test_price :Price sum 129.94 == sum_list price 129.94
 2023-07-02 23:43:03,557 :INFO :test_price :Price sum 129.94 == sum_list price 129.94
 2023-07-02 23:43:03,557 :INFO :test_price :Price sum 129.94 == sum_list price 129.94
+2023-07-08 22:23:14,109 :INFO :test_order :##### 1. Login step #####
+2023-07-08 22:23:14,109 :INFO :test_order :Username is standard_user
+2023-07-08 22:23:14,270 :INFO :test_order :Password is secret_sauce
+2023-07-08 22:23:14,597 :INFO :test_order :Login is pass
+2023-07-08 22:23:14,597 :INFO :test_order :##### 2. Add to cart step #####
+2023-07-08 22:23:14,790 :ERROR :test_order :Cart number is incorrectly, expected = 0, actually = 1
+2023-07-08 22:23:14,927 :ERROR :test_order :Cart number is incorrectly, expected = 1, actually = 2
+2023-07-08 22:23:15,067 :ERROR :test_order :Cart number is incorrectly, expected = 2, actually = 3
+2023-07-08 22:23:15,200 :ERROR :test_order :Cart number is incorrectly, expected = 3, actually = 4
+2023-07-08 22:23:15,334 :ERROR :test_order :Cart number is incorrectly, expected = 4, actually = 5
+2023-07-08 22:23:15,475 :ERROR :test_order :Cart number is incorrectly, expected = 5, actually = 6
+2023-07-08 22:23:15,475 :INFO :test_order :##### 2. Click on cart button step #####
+2023-07-08 22:23:15,597 :ERROR :test_order :Cart number is incorrectly, expected = [<selenium.webdriver.remote.webelement.WebElement (session="5f43b81fde2f3c3d823b58deae03c4d4", element="6A3E4538CB0252DA89C714705D15E62E_element_15")>, <selenium.webdriver.remote.webelement.WebElement (session="5f43b81fde2f3c3d823b58deae03c4d4", element="6A3E4538CB0252DA89C714705D15E62E_element_16")>, <selenium.webdriver.remote.webelement.WebElement (session="5f43b81fde2f3c3d823b58deae03c4d4", element="6A3E4538CB0252DA89C714705D15E62E_element_17")>, <selenium.webdriver.remote.webelement.WebElement (session="5f43b81fde2f3c3d823b58deae03c4d4", element="6A3E4538CB0252DA89C714705D15E62E_element_18")>, <selenium.webdriver.remote.webelement.WebElement (session="5f43b81fde2f3c3d823b58deae03c4d4", element="6A3E4538CB0252DA89C714705D15E62E_element_19")>, <selenium.webdriver.remote.webelement.WebElement (session="5f43b81fde2f3c3d823b58deae03c4d4", element="6A3E4538CB0252DA89C714705D15E62E_element_20")>], actually = 6
+2023-07-08 22:23:18,305 :INFO :test_standard_login :Username is incorrect
+2023-07-08 22:23:18,458 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:18,747 :INFO :test_standard_login :Login is locked
+2023-07-08 22:23:20,304 :INFO :test_standard_login :Username is incorrect
+2023-07-08 22:23:20,304 :INFO :test_standard_login :Username is incorrect
+2023-07-08 22:23:20,451 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:20,451 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:20,733 :INFO :test_standard_login :Login is locked
+2023-07-08 22:23:20,733 :INFO :test_standard_login :Login is locked
+2023-07-08 22:23:22,324 :INFO :test_standard_login :Username is locked_out_user
+2023-07-08 22:23:22,324 :INFO :test_standard_login :Username is locked_out_user
+2023-07-08 22:23:22,324 :INFO :test_standard_login :Username is locked_out_user
+2023-07-08 22:23:22,494 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:22,494 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:22,494 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:22,774 :INFO :test_standard_login :Login is locked
+2023-07-08 22:23:22,774 :INFO :test_standard_login :Login is locked
+2023-07-08 22:23:22,774 :INFO :test_standard_login :Login is locked
+2023-07-08 22:23:24,355 :INFO :test_price :##### 1. Login step #####
+2023-07-08 22:23:24,355 :INFO :test_price :Username is performance_glitch_user
+2023-07-08 22:23:24,538 :INFO :test_price :Password is secret_sauce
+2023-07-08 22:23:29,892 :INFO :test_price :Login is pass
+2023-07-08 22:23:31,974 :INFO :test_standard_login :Username is problem_user
+2023-07-08 22:23:31,974 :INFO :test_standard_login :Username is problem_user
+2023-07-08 22:23:31,974 :INFO :test_standard_login :Username is problem_user
+2023-07-08 22:23:31,974 :INFO :test_standard_login :Username is problem_user
+2023-07-08 22:23:32,127 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:32,127 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:32,127 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:32,127 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:32,466 :INFO :test_standard_login :Login is pass
+2023-07-08 22:23:32,466 :INFO :test_standard_login :Login is pass
+2023-07-08 22:23:32,466 :INFO :test_standard_login :Login is pass
+2023-07-08 22:23:32,466 :INFO :test_standard_login :Login is pass
+2023-07-08 22:23:34,073 :INFO :test_standard_login :Username is standard_user
+2023-07-08 22:23:34,073 :INFO :test_standard_login :Username is standard_user
+2023-07-08 22:23:34,073 :INFO :test_standard_login :Username is standard_user
+2023-07-08 22:23:34,073 :INFO :test_standard_login :Username is standard_user
+2023-07-08 22:23:34,073 :INFO :test_standard_login :Username is standard_user
+2023-07-08 22:23:34,233 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:34,233 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:34,233 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:34,233 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:34,233 :INFO :test_standard_login :Password is secret_sauce
+2023-07-08 22:23:34,567 :INFO :test_standard_login :Login is pass
+2023-07-08 22:23:34,567 :INFO :test_standard_login :Login is pass
+2023-07-08 22:23:34,567 :INFO :test_standard_login :Login is pass
+2023-07-08 22:23:34,567 :INFO :test_standard_login :Login is pass
+2023-07-08 22:23:34,567 :INFO :test_standard_login :Login is pass
+2023-07-08 22:23:36,196 :INFO :test_order :##### 1. Login step #####
+2023-07-08 22:23:36,196 :INFO :test_order :##### 1. Login step #####
+2023-07-08 22:23:36,196 :INFO :test_order :Username is problem_user
+2023-07-08 22:23:36,196 :INFO :test_order :Username is problem_user
+2023-07-08 22:23:36,360 :INFO :test_order :Password is secret_sauce
+2023-07-08 22:23:36,360 :INFO :test_order :Password is secret_sauce
+2023-07-08 22:23:36,685 :INFO :test_order :Login is pass
+2023-07-08 22:23:36,685 :INFO :test_order :Login is pass
+2023-07-08 22:23:36,685 :INFO :test_order :##### 2. Order step #####
+2023-07-08 22:23:36,685 :INFO :test_order :##### 2. Order step #####
+2023-07-08 22:23:37,368 :ERROR :test_order :Order incorrectly A-Z order
+2023-07-08 22:23:37,368 :ERROR :test_order :Order incorrectly A-Z order
+2023-07-08 22:23:38,001 :ERROR :test_order :Order incorrectly Z-A order
+2023-07-08 22:23:38,001 :ERROR :test_order :Order incorrectly Z-A order
+2023-07-08 22:23:38,633 :ERROR :test_order :Order incorrectly Low to High
+2023-07-08 22:23:38,633 :ERROR :test_order :Order incorrectly Low to High
+2023-07-08 22:23:39,270 :ERROR :test_order :Order incorrectly High to Low
+2023-07-08 22:23:39,270 :ERROR :test_order :Order incorrectly High to Low
+2023-07-08 22:23:41,184 :INFO :test_order :##### 1. Login step #####
+2023-07-08 22:23:41,184 :INFO :test_order :##### 1. Login step #####
+2023-07-08 22:23:41,184 :INFO :test_order :##### 1. Login step #####
+2023-07-08 22:23:41,184 :INFO :test_order :Username is standard_user
+2023-07-08 22:23:41,184 :INFO :test_order :Username is standard_user
+2023-07-08 22:23:41,184 :INFO :test_order :Username is standard_user
+2023-07-08 22:23:41,347 :INFO :test_order :Password is secret_sauce
+2023-07-08 22:23:41,347 :INFO :test_order :Password is secret_sauce
+2023-07-08 22:23:41,347 :INFO :test_order :Password is secret_sauce
+2023-07-08 22:23:41,684 :INFO :test_order :Login is pass
+2023-07-08 22:23:41,684 :INFO :test_order :Login is pass
+2023-07-08 22:23:41,684 :INFO :test_order :Login is pass
+2023-07-08 22:23:41,684 :INFO :test_order :##### 2. Order step #####
+2023-07-08 22:23:41,684 :INFO :test_order :##### 2. Order step #####
+2023-07-08 22:23:41,684 :INFO :test_order :##### 2. Order step #####
+2023-07-08 22:23:42,365 :INFO :test_order :Items name are ordered correctly A-Z order
+2023-07-08 22:23:42,365 :INFO :test_order :Items name are ordered correctly A-Z order
+2023-07-08 22:23:42,365 :INFO :test_order :Items name are ordered correctly A-Z order
+2023-07-08 22:23:42,998 :INFO :test_order :Items name are ordered correctly Z-A order
+2023-07-08 22:23:42,998 :INFO :test_order :Items name are ordered correctly Z-A order
+2023-07-08 22:23:42,998 :INFO :test_order :Items name are ordered correctly Z-A order
+2023-07-08 22:23:43,635 :INFO :test_order :Items name are ordered correctly Low to High
+2023-07-08 22:23:43,635 :INFO :test_order :Items name are ordered correctly Low to High
+2023-07-08 22:23:43,635 :INFO :test_order :Items name are ordered correctly Low to High
+2023-07-08 22:23:44,275 :INFO :test_order :Items name are ordered correctly High to Low
+2023-07-08 22:23:44,275 :INFO :test_order :Items name are ordered correctly High to Low
+2023-07-08 22:23:44,275 :INFO :test_order :Items name are ordered correctly High to Low
+2023-07-08 22:23:45,854 :INFO :test_price :##### 1. Login step #####
+2023-07-08 22:23:45,854 :INFO :test_price :##### 1. Login step #####
+2023-07-08 22:23:45,854 :INFO :test_price :Username is performance_glitch_user
+2023-07-08 22:23:45,854 :INFO :test_price :Username is performance_glitch_user
+2023-07-08 22:23:46,042 :INFO :test_price :Password is secret_sauce
+2023-07-08 22:23:46,042 :INFO :test_price :Password is secret_sauce
+2023-07-08 22:23:51,401 :INFO :test_price :Login is pass
+2023-07-08 22:23:51,401 :INFO :test_price :Login is pass
+2023-07-08 22:23:51,401 :INFO :test_price :##### 2. Price step from items page #####
+2023-07-08 22:23:51,401 :INFO :test_price :##### 2. Price step from items page #####
+2023-07-08 22:23:51,401 :INFO :test_price :Calculate total price
+2023-07-08 22:23:51,401 :INFO :test_price :Calculate total price
+2023-07-08 22:23:51,615 :INFO :test_price :All elements price is 129.94
+2023-07-08 22:23:51,615 :INFO :test_price :All elements price is 129.94
+2023-07-08 22:23:51,615 :INFO :test_price :##### 3. Price step from each item page and add to cart #####
+2023-07-08 22:23:51,615 :INFO :test_price :##### 3. Price step from each item page and add to cart #####
+2023-07-08 22:23:51,959 :INFO :test_price :Element name = Sauce Labs Backpack and price $29.99
+2023-07-08 22:23:51,959 :INFO :test_price :Element name = Sauce Labs Backpack and price $29.99
+2023-07-08 22:23:51,960 :INFO :test_price :Price from main page 29.99 vs, price on item page $29.99
+2023-07-08 22:23:51,960 :INFO :test_price :Price from main page 29.99 vs, price on item page $29.99
+2023-07-08 22:23:57,302 :INFO :test_price :Element name = Sauce Labs Bike Light and price $9.99
+2023-07-08 22:23:57,302 :INFO :test_price :Element name = Sauce Labs Bike Light and price $9.99
+2023-07-08 22:23:57,302 :INFO :test_price :Price from main page 9.99 vs, price on item page $9.99
+2023-07-08 22:23:57,302 :INFO :test_price :Price from main page 9.99 vs, price on item page $9.99
+2023-07-08 22:24:02,633 :INFO :test_price :Element name = Sauce Labs Bolt T-Shirt and price $15.99
+2023-07-08 22:24:02,633 :INFO :test_price :Element name = Sauce Labs Bolt T-Shirt and price $15.99
+2023-07-08 22:24:02,633 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:02,633 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:07,965 :INFO :test_price :Element name = Sauce Labs Fleece Jacket and price $49.99
+2023-07-08 22:24:07,965 :INFO :test_price :Element name = Sauce Labs Fleece Jacket and price $49.99
+2023-07-08 22:24:07,965 :INFO :test_price :Price from main page 49.99 vs, price on item page $49.99
+2023-07-08 22:24:07,965 :INFO :test_price :Price from main page 49.99 vs, price on item page $49.99
+2023-07-08 22:24:13,302 :INFO :test_price :Element name = Sauce Labs Onesie and price $7.99
+2023-07-08 22:24:13,302 :INFO :test_price :Element name = Sauce Labs Onesie and price $7.99
+2023-07-08 22:24:13,302 :INFO :test_price :Price from main page 7.99 vs, price on item page $7.99
+2023-07-08 22:24:13,302 :INFO :test_price :Price from main page 7.99 vs, price on item page $7.99
+2023-07-08 22:24:18,633 :INFO :test_price :Element name = Test.allTheThings() T-Shirt (Red) and price $15.99
+2023-07-08 22:24:18,633 :INFO :test_price :Element name = Test.allTheThings() T-Shirt (Red) and price $15.99
+2023-07-08 22:24:18,633 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:18,633 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:23,663 :INFO :test_price :Price sum 129.94 == sum_list price 129.94
+2023-07-08 22:24:23,663 :INFO :test_price :Price sum 129.94 == sum_list price 129.94
+2023-07-08 22:24:25,732 :INFO :test_price :##### 1. Login step #####
+2023-07-08 22:24:25,732 :INFO :test_price :##### 1. Login step #####
+2023-07-08 22:24:25,732 :INFO :test_price :##### 1. Login step #####
+2023-07-08 22:24:25,732 :INFO :test_price :Username is problem_user
+2023-07-08 22:24:25,732 :INFO :test_price :Username is problem_user
+2023-07-08 22:24:25,732 :INFO :test_price :Username is problem_user
+2023-07-08 22:24:25,889 :INFO :test_price :Password is secret_sauce
+2023-07-08 22:24:25,889 :INFO :test_price :Password is secret_sauce
+2023-07-08 22:24:25,889 :INFO :test_price :Password is secret_sauce
+2023-07-08 22:24:26,218 :INFO :test_price :Login is pass
+2023-07-08 22:24:26,218 :INFO :test_price :Login is pass
+2023-07-08 22:24:26,218 :INFO :test_price :Login is pass
+2023-07-08 22:24:26,218 :INFO :test_price :##### 2. Price step from items page #####
+2023-07-08 22:24:26,218 :INFO :test_price :##### 2. Price step from items page #####
+2023-07-08 22:24:26,218 :INFO :test_price :##### 2. Price step from items page #####
+2023-07-08 22:24:26,218 :INFO :test_price :Calculate total price
+2023-07-08 22:24:26,218 :INFO :test_price :Calculate total price
+2023-07-08 22:24:26,218 :INFO :test_price :Calculate total price
+2023-07-08 22:24:26,432 :INFO :test_price :All elements price is 129.94
+2023-07-08 22:24:26,432 :INFO :test_price :All elements price is 129.94
+2023-07-08 22:24:26,432 :INFO :test_price :All elements price is 129.94
+2023-07-08 22:24:26,432 :INFO :test_price :##### 3. Price step from each item page and add to cart #####
+2023-07-08 22:24:26,432 :INFO :test_price :##### 3. Price step from each item page and add to cart #####
+2023-07-08 22:24:26,432 :INFO :test_price :##### 3. Price step from each item page and add to cart #####
+2023-07-08 22:24:26,768 :INFO :test_price :Element name = Sauce Labs Backpack and price $49.99
+2023-07-08 22:24:26,768 :INFO :test_price :Element name = Sauce Labs Backpack and price $49.99
+2023-07-08 22:24:26,768 :INFO :test_price :Element name = Sauce Labs Backpack and price $49.99
+2023-07-08 22:24:26,768 :INFO :test_price :Price from main page 29.99 vs, price on item page $49.99
+2023-07-08 22:24:26,768 :INFO :test_price :Price from main page 29.99 vs, price on item page $49.99
+2023-07-08 22:24:26,768 :INFO :test_price :Price from main page 29.99 vs, price on item page $49.99
+2023-07-08 22:24:26,768 :ERROR :test_price :Assertion failed: Expected price 29.99, Actual price 49.99
+2023-07-08 22:24:26,768 :ERROR :test_price :Assertion failed: Expected price 29.99, Actual price 49.99
+2023-07-08 22:24:26,768 :ERROR :test_price :Assertion failed: Expected price 29.99, Actual price 49.99
+2023-07-08 22:24:27,094 :INFO :test_price :Element name = Sauce Labs Bike Light and price $15.99
+2023-07-08 22:24:27,094 :INFO :test_price :Element name = Sauce Labs Bike Light and price $15.99
+2023-07-08 22:24:27,094 :INFO :test_price :Element name = Sauce Labs Bike Light and price $15.99
+2023-07-08 22:24:27,094 :INFO :test_price :Price from main page 9.99 vs, price on item page $15.99
+2023-07-08 22:24:27,094 :INFO :test_price :Price from main page 9.99 vs, price on item page $15.99
+2023-07-08 22:24:27,094 :INFO :test_price :Price from main page 9.99 vs, price on item page $15.99
+2023-07-08 22:24:27,094 :ERROR :test_price :Assertion failed: Expected price 9.99, Actual price 15.99
+2023-07-08 22:24:27,094 :ERROR :test_price :Assertion failed: Expected price 9.99, Actual price 15.99
+2023-07-08 22:24:27,094 :ERROR :test_price :Assertion failed: Expected price 9.99, Actual price 15.99
+2023-07-08 22:24:27,411 :INFO :test_price :Element name = Sauce Labs Bolt T-Shirt and price $7.99
+2023-07-08 22:24:27,411 :INFO :test_price :Element name = Sauce Labs Bolt T-Shirt and price $7.99
+2023-07-08 22:24:27,411 :INFO :test_price :Element name = Sauce Labs Bolt T-Shirt and price $7.99
+2023-07-08 22:24:27,411 :INFO :test_price :Price from main page 15.99 vs, price on item page $7.99
+2023-07-08 22:24:27,411 :INFO :test_price :Price from main page 15.99 vs, price on item page $7.99
+2023-07-08 22:24:27,411 :INFO :test_price :Price from main page 15.99 vs, price on item page $7.99
+2023-07-08 22:24:27,411 :ERROR :test_price :Assertion failed: Expected price 15.99, Actual price 7.99
+2023-07-08 22:24:27,411 :ERROR :test_price :Assertion failed: Expected price 15.99, Actual price 7.99
+2023-07-08 22:24:27,411 :ERROR :test_price :Assertion failed: Expected price 15.99, Actual price 7.99
+2023-07-08 22:24:27,744 :INFO :test_price :Element name = Sauce Labs Fleece Jacket and price $√-1
+2023-07-08 22:24:27,744 :INFO :test_price :Element name = Sauce Labs Fleece Jacket and price $√-1
+2023-07-08 22:24:27,744 :INFO :test_price :Element name = Sauce Labs Fleece Jacket and price $√-1
+2023-07-08 22:24:27,744 :INFO :test_price :Price from main page 49.99 vs, price on item page $√-1
+2023-07-08 22:24:27,744 :INFO :test_price :Price from main page 49.99 vs, price on item page $√-1
+2023-07-08 22:24:27,744 :INFO :test_price :Price from main page 49.99 vs, price on item page $√-1
+2023-07-08 22:24:27,745 :ERROR :test_price :Error: Failed to convert price to float
+2023-07-08 22:24:27,745 :ERROR :test_price :Error: Failed to convert price to float
+2023-07-08 22:24:27,745 :ERROR :test_price :Error: Failed to convert price to float
+2023-07-08 22:24:28,075 :INFO :test_price :Element name = Sauce Labs Onesie and price $15.99
+2023-07-08 22:24:28,075 :INFO :test_price :Element name = Sauce Labs Onesie and price $15.99
+2023-07-08 22:24:28,075 :INFO :test_price :Element name = Sauce Labs Onesie and price $15.99
+2023-07-08 22:24:28,075 :INFO :test_price :Price from main page 7.99 vs, price on item page $15.99
+2023-07-08 22:24:28,075 :INFO :test_price :Price from main page 7.99 vs, price on item page $15.99
+2023-07-08 22:24:28,075 :INFO :test_price :Price from main page 7.99 vs, price on item page $15.99
+2023-07-08 22:24:28,076 :ERROR :test_price :Assertion failed: Expected price 7.99, Actual price 15.99
+2023-07-08 22:24:28,076 :ERROR :test_price :Assertion failed: Expected price 7.99, Actual price 15.99
+2023-07-08 22:24:28,076 :ERROR :test_price :Assertion failed: Expected price 7.99, Actual price 15.99
+2023-07-08 22:24:28,397 :INFO :test_price :Element name = Test.allTheThings() T-Shirt (Red) and price $29.99
+2023-07-08 22:24:28,397 :INFO :test_price :Element name = Test.allTheThings() T-Shirt (Red) and price $29.99
+2023-07-08 22:24:28,397 :INFO :test_price :Element name = Test.allTheThings() T-Shirt (Red) and price $29.99
+2023-07-08 22:24:28,397 :INFO :test_price :Price from main page 15.99 vs, price on item page $29.99
+2023-07-08 22:24:28,397 :INFO :test_price :Price from main page 15.99 vs, price on item page $29.99
+2023-07-08 22:24:28,397 :INFO :test_price :Price from main page 15.99 vs, price on item page $29.99
+2023-07-08 22:24:28,397 :ERROR :test_price :Assertion failed: Expected price 15.99, Actual price 29.99
+2023-07-08 22:24:28,397 :ERROR :test_price :Assertion failed: Expected price 15.99, Actual price 29.99
+2023-07-08 22:24:28,397 :ERROR :test_price :Assertion failed: Expected price 15.99, Actual price 29.99
+2023-07-08 22:24:28,416 :ERROR :test_price :Assertion failed: Expected sum 129.94, Actual price 119.94999999999999
+2023-07-08 22:24:28,416 :ERROR :test_price :Assertion failed: Expected sum 129.94, Actual price 119.94999999999999
+2023-07-08 22:24:28,416 :ERROR :test_price :Assertion failed: Expected sum 129.94, Actual price 119.94999999999999
+2023-07-08 22:24:30,313 :INFO :test_price :##### 1. Login step #####
+2023-07-08 22:24:30,313 :INFO :test_price :##### 1. Login step #####
+2023-07-08 22:24:30,313 :INFO :test_price :##### 1. Login step #####
+2023-07-08 22:24:30,313 :INFO :test_price :##### 1. Login step #####
+2023-07-08 22:24:30,314 :INFO :test_price :Username is standard_user
+2023-07-08 22:24:30,314 :INFO :test_price :Username is standard_user
+2023-07-08 22:24:30,314 :INFO :test_price :Username is standard_user
+2023-07-08 22:24:30,314 :INFO :test_price :Username is standard_user
+2023-07-08 22:24:30,488 :INFO :test_price :Password is secret_sauce
+2023-07-08 22:24:30,488 :INFO :test_price :Password is secret_sauce
+2023-07-08 22:24:30,488 :INFO :test_price :Password is secret_sauce
+2023-07-08 22:24:30,488 :INFO :test_price :Password is secret_sauce
+2023-07-08 22:24:30,823 :INFO :test_price :Login is pass
+2023-07-08 22:24:30,823 :INFO :test_price :Login is pass
+2023-07-08 22:24:30,823 :INFO :test_price :Login is pass
+2023-07-08 22:24:30,823 :INFO :test_price :Login is pass
+2023-07-08 22:24:30,824 :INFO :test_price :##### 2. Price step from items page #####
+2023-07-08 22:24:30,824 :INFO :test_price :##### 2. Price step from items page #####
+2023-07-08 22:24:30,824 :INFO :test_price :##### 2. Price step from items page #####
+2023-07-08 22:24:30,824 :INFO :test_price :##### 2. Price step from items page #####
+2023-07-08 22:24:30,824 :INFO :test_price :Calculate total price
+2023-07-08 22:24:30,824 :INFO :test_price :Calculate total price
+2023-07-08 22:24:30,824 :INFO :test_price :Calculate total price
+2023-07-08 22:24:30,824 :INFO :test_price :Calculate total price
+2023-07-08 22:24:31,034 :INFO :test_price :All elements price is 129.94
+2023-07-08 22:24:31,034 :INFO :test_price :All elements price is 129.94
+2023-07-08 22:24:31,034 :INFO :test_price :All elements price is 129.94
+2023-07-08 22:24:31,034 :INFO :test_price :All elements price is 129.94
+2023-07-08 22:24:31,034 :INFO :test_price :##### 3. Price step from each item page and add to cart #####
+2023-07-08 22:24:31,034 :INFO :test_price :##### 3. Price step from each item page and add to cart #####
+2023-07-08 22:24:31,034 :INFO :test_price :##### 3. Price step from each item page and add to cart #####
+2023-07-08 22:24:31,034 :INFO :test_price :##### 3. Price step from each item page and add to cart #####
+2023-07-08 22:24:31,368 :INFO :test_price :Element name = Sauce Labs Backpack and price $29.99
+2023-07-08 22:24:31,368 :INFO :test_price :Element name = Sauce Labs Backpack and price $29.99
+2023-07-08 22:24:31,368 :INFO :test_price :Element name = Sauce Labs Backpack and price $29.99
+2023-07-08 22:24:31,368 :INFO :test_price :Element name = Sauce Labs Backpack and price $29.99
+2023-07-08 22:24:31,368 :INFO :test_price :Price from main page 29.99 vs, price on item page $29.99
+2023-07-08 22:24:31,368 :INFO :test_price :Price from main page 29.99 vs, price on item page $29.99
+2023-07-08 22:24:31,368 :INFO :test_price :Price from main page 29.99 vs, price on item page $29.99
+2023-07-08 22:24:31,368 :INFO :test_price :Price from main page 29.99 vs, price on item page $29.99
+2023-07-08 22:24:31,697 :INFO :test_price :Element name = Sauce Labs Bike Light and price $9.99
+2023-07-08 22:24:31,697 :INFO :test_price :Element name = Sauce Labs Bike Light and price $9.99
+2023-07-08 22:24:31,697 :INFO :test_price :Element name = Sauce Labs Bike Light and price $9.99
+2023-07-08 22:24:31,697 :INFO :test_price :Element name = Sauce Labs Bike Light and price $9.99
+2023-07-08 22:24:31,697 :INFO :test_price :Price from main page 9.99 vs, price on item page $9.99
+2023-07-08 22:24:31,697 :INFO :test_price :Price from main page 9.99 vs, price on item page $9.99
+2023-07-08 22:24:31,697 :INFO :test_price :Price from main page 9.99 vs, price on item page $9.99
+2023-07-08 22:24:31,697 :INFO :test_price :Price from main page 9.99 vs, price on item page $9.99
+2023-07-08 22:24:32,026 :INFO :test_price :Element name = Sauce Labs Bolt T-Shirt and price $15.99
+2023-07-08 22:24:32,026 :INFO :test_price :Element name = Sauce Labs Bolt T-Shirt and price $15.99
+2023-07-08 22:24:32,026 :INFO :test_price :Element name = Sauce Labs Bolt T-Shirt and price $15.99
+2023-07-08 22:24:32,026 :INFO :test_price :Element name = Sauce Labs Bolt T-Shirt and price $15.99
+2023-07-08 22:24:32,026 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:32,026 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:32,026 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:32,026 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:32,363 :INFO :test_price :Element name = Sauce Labs Fleece Jacket and price $49.99
+2023-07-08 22:24:32,363 :INFO :test_price :Element name = Sauce Labs Fleece Jacket and price $49.99
+2023-07-08 22:24:32,363 :INFO :test_price :Element name = Sauce Labs Fleece Jacket and price $49.99
+2023-07-08 22:24:32,363 :INFO :test_price :Element name = Sauce Labs Fleece Jacket and price $49.99
+2023-07-08 22:24:32,364 :INFO :test_price :Price from main page 49.99 vs, price on item page $49.99
+2023-07-08 22:24:32,364 :INFO :test_price :Price from main page 49.99 vs, price on item page $49.99
+2023-07-08 22:24:32,364 :INFO :test_price :Price from main page 49.99 vs, price on item page $49.99
+2023-07-08 22:24:32,364 :INFO :test_price :Price from main page 49.99 vs, price on item page $49.99
+2023-07-08 22:24:32,690 :INFO :test_price :Element name = Sauce Labs Onesie and price $7.99
+2023-07-08 22:24:32,690 :INFO :test_price :Element name = Sauce Labs Onesie and price $7.99
+2023-07-08 22:24:32,690 :INFO :test_price :Element name = Sauce Labs Onesie and price $7.99
+2023-07-08 22:24:32,690 :INFO :test_price :Element name = Sauce Labs Onesie and price $7.99
+2023-07-08 22:24:32,690 :INFO :test_price :Price from main page 7.99 vs, price on item page $7.99
+2023-07-08 22:24:32,690 :INFO :test_price :Price from main page 7.99 vs, price on item page $7.99
+2023-07-08 22:24:32,690 :INFO :test_price :Price from main page 7.99 vs, price on item page $7.99
+2023-07-08 22:24:32,690 :INFO :test_price :Price from main page 7.99 vs, price on item page $7.99
+2023-07-08 22:24:33,025 :INFO :test_price :Element name = Test.allTheThings() T-Shirt (Red) and price $15.99
+2023-07-08 22:24:33,025 :INFO :test_price :Element name = Test.allTheThings() T-Shirt (Red) and price $15.99
+2023-07-08 22:24:33,025 :INFO :test_price :Element name = Test.allTheThings() T-Shirt (Red) and price $15.99
+2023-07-08 22:24:33,025 :INFO :test_price :Element name = Test.allTheThings() T-Shirt (Red) and price $15.99
+2023-07-08 22:24:33,026 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:33,026 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:33,026 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:33,026 :INFO :test_price :Price from main page 15.99 vs, price on item page $15.99
+2023-07-08 22:24:33,045 :INFO :test_price :Price sum 129.94 == sum_list price 129.94
+2023-07-08 22:24:33,045 :INFO :test_price :Price sum 129.94 == sum_list price 129.94
+2023-07-08 22:24:33,045 :INFO :test_price :Price sum 129.94 == sum_list price 129.94
+2023-07-08 22:24:33,045 :INFO :test_price :Price sum 129.94 == sum_list price 129.94

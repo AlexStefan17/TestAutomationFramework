@@ -37,18 +37,23 @@ class TestOrderStandard(BaseClass):
 
         log.info("##### 2. Add to cart step #####")
         items = prices.get_prices()
-        for item, index in enumerate(range(len(items))):
+        for index, item in enumerate(items):
             prices.add_to_cart(index)
-            if index == prices.get_cart_number():
+            if (index + 1) == int(prices.get_cart_number()):
                 log.info(f"Cart number is correctly, expected = {index}, actually = {prices.get_cart_number()}")
             else:
-                log.error(f"Cart number is incorrectly, expected = {index}, actually = {prices.get_cart_number()}")
+                error_message = f"Cart number is incorrectly, expected = {index}, actually = {prices.get_cart_number()}"
+                log.error(error_message)
+                log_error_messages.append(error_message)
 
         log.info("##### 2. Click on cart button step #####")
         prices.get_cart_link()
         number_cart_items = prices.get_cart_number()
-        if number_cart_items == items:
+        if int(number_cart_items) == len(items):
             log.info(f"Cart number is correctly, expected = {items}, actually = {number_cart_items}")
         else:
-            log.error(f"Cart number is incorrectly, expected = {items}, actually = {number_cart_items}")
-        time.sleep(1)
+            error_message = "Number of items is different"
+            log.error(error_message)
+            log_error_messages.append(error_message)
+
+        assert len(log_error_messages) == 0, f"Error log found: {log_error_messages}"
