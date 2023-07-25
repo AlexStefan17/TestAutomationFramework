@@ -13,6 +13,7 @@ class Price:
     price_element_page = (By.XPATH, "//div[@class='inventory_details_price']")
     cart_number = (By.XPATH, "//a[@class='shopping_cart_link']")
     cart_link = (By.XPATH, "//a[@class='shopping_cart_link']")
+    remove_element_button = (By.XPATH, "//button[@class='btn btn_secondary btn_small btn_inventory']")
 
     def get_prices(self):
         return self.driver.find_elements(*Price.items)
@@ -41,3 +42,7 @@ class Price:
 
     def get_cart_link(self):
         return self.driver.find_element(*Price.cart_link).click()
+
+    def remove_from_cart(self, index):
+        elements = self.get_prices()
+        return elements[index].find_element(*Price.remove_element_button).click()
