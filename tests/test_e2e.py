@@ -64,7 +64,6 @@ class TestOrderStandard(BaseClass):
         checkout.set_postal_code().send_keys("1234567")
         checkout.click_continue_button().click()
 
-        # items = self.driver.find_elements(By.XPATH, "//div[@class='cart_item']")
         checkout.get_items()
         list_price = []
         for index, item in enumerate(items):
@@ -72,8 +71,7 @@ class TestOrderStandard(BaseClass):
             list_price.append(float(item_price[1::]))
         total_price = sum(list_price)
 
-
-        site_price = self.driver.find_element(By.XPATH, "//div[@class='summary_subtotal_label']").text
+        site_price = checkout.get_total_price()
         site_price = site_price[13::]
         if total_price == float(site_price):
             log.info(f"Price is correctly, calculated price = {total_price} = site price {site_price}")
@@ -82,10 +80,10 @@ class TestOrderStandard(BaseClass):
             log.error(error_message)
             log_error_messages.append(error_message)
 
-        tax_price = self.driver.find_element(By.XPATH, "//div[@class='summary_tax_label']").text
+        tax_price = checkout.get_tax_price()
         tax_price = tax_price[6::]
 
-        total_price_tax = self.driver.find_element(By.XPATH, "//div[@class='summary_info_label summary_total_label']").text
+        total_price_tax = checkout.get_total_price_tax()
         total_price_tax = total_price_tax[8::]
 
         price_total_calculated = total_price + float(tax_price)
@@ -97,7 +95,6 @@ class TestOrderStandard(BaseClass):
             log.error(error_message)
             log_error_messages.append(error_message)
 
-        self.driver.find_element(By.XPATH, "//button[@id='finish']").click()
-        self.driver.find_element(By.XPATH, "//button[@id='back-to-products']").click(),
-
+        checkout.finish()
+        checkout.back_to_products()
         assert len(log_error_messages) == 0, f"Error log found: {log_error_messages}"
