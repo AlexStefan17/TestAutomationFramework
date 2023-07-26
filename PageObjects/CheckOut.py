@@ -10,6 +10,8 @@ class CheckOutPage:
     last_name = (By.XPATH, "//input[@id='last-name']")
     postal_code = (By.XPATH, "//input[@id='postal-code']")
     continue_button = (By.XPATH, "//input[@id='continue']")
+    items = (By.XPATH, "//div[@class='cart_item']")
+    item_price = (By.XPATH, ".//div[@class='inventory_item_price']")
 
     def checkout(self):
         return self.driver.find_element(*CheckOutPage.checkout_button)
@@ -25,3 +27,10 @@ class CheckOutPage:
 
     def click_continue_button(self):
         return self.driver.find_element(*CheckOutPage.continue_button)
+
+    def get_items(self):
+        return self.driver.find_elements(*CheckOutPage.items)
+
+    def get_item_price(self, index):
+        items = self.get_items()
+        return items[index].find_element(*CheckOutPage.item_price).text

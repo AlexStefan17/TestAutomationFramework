@@ -64,10 +64,11 @@ class TestOrderStandard(BaseClass):
         checkout.set_postal_code().send_keys("1234567")
         checkout.click_continue_button().click()
 
-        items = self.driver.find_elements(By.XPATH, "//div[@class='cart_item']")
+        # items = self.driver.find_elements(By.XPATH, "//div[@class='cart_item']")
+        checkout.get_items()
         list_price = []
-        for item in items:
-            item_price = item.find_element(By.XPATH, ".//div[@class='inventory_item_price']").text
+        for index, item in enumerate(items):
+            item_price = checkout.get_item_price(index)
             list_price.append(float(item_price[1::]))
         total_price = sum(list_price)
 
