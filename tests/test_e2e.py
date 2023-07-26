@@ -8,6 +8,7 @@ from PageObjects.Price import Price
 from TestData.Login import LoginData
 from utilities.BaseClass import BaseClass
 from PageObjects.Login import Login
+from PageObjects.CheckOut import CheckOutPage
 from selenium.webdriver.support.select import Select
 
 
@@ -56,11 +57,12 @@ class TestOrderStandard(BaseClass):
             log.error(error_message)
             log_error_messages.append(error_message)
 
-        self.driver.find_element(By.XPATH, "//button[@id='checkout']").click()
-        self.driver.find_element(By.XPATH, "//input[@id='first-name']").send_keys("Da")
-        self.driver.find_element(By.XPATH, "//input[@id='last-name']").send_keys("Nu")
-        self.driver.find_element(By.XPATH, "//input[@id='postal-code']").send_keys("1234567")
-        self.driver.find_element(By.XPATH, "//input[@id='continue']").click()
+        checkout = CheckOutPage(self.driver)
+        checkout.checkout().click()
+        checkout.set_first_name().send_keys("Da")
+        checkout.set_last_name().send_keys("Da")
+        checkout.set_postal_code().send_keys("1234567")
+        checkout.click_continue_button().click()
 
         items = self.driver.find_elements(By.XPATH, "//div[@class='cart_item']")
         list_price = []
@@ -68,24 +70,33 @@ class TestOrderStandard(BaseClass):
             item_price = item.find_element(By.XPATH, ".//div[@class='inventory_item_price']").text
             list_price.append(float(item_price[1::]))
         total_price = sum(list_price)
-        print(total_price)
+
 
         site_price = self.driver.find_element(By.XPATH, "//div[@class='summary_subtotal_label']").text
         site_price = site_price[13::]
-        print(site_price)
+        if total_price == float(site_price):
+            log.info(f"Price is correctly, calculated price = {total_price} = site price {site_price}")
+        else:
+            error_message = f"Price is incorrectly, calculated price = {total_price} = site price {site_price}"
+            log.error(error_message)
+            log_error_messages.append(error_message)
 
         tax_price = self.driver.find_element(By.XPATH, "//div[@class='summary_tax_label']").text
         tax_price = tax_price[6::]
-        print(tax_price)
 
         total_price_tax = self.driver.find_element(By.XPATH, "//div[@class='summary_info_label summary_total_label']").text
         total_price_tax = total_price_tax[8::]
-        print(total_price_tax)
 
         price_total_calculated = total_price + float(tax_price)
-        print(price_total_calculated)
+
+        if float(total_price_tax) == price_total_calculated:
+            log.info(f"Price is correctly, calculated price = {price_total_calculated} = site price {total_price_tax}")
+        else:
+            error_message = f"Price is incorrectly, calculated price = {price_total_calculated} = site price {total_price_tax}"
+            log.error(error_message)
+            log_error_messages.append(error_message)
 
         self.driver.find_element(By.XPATH, "//button[@id='finish']").click()
-        self.driver.find_element(By.XPATH, "//button[@id='back-to-products']").click()
+        self.driver.find_element(By.XPATH, "//button[@id='back-to-products']").click(),
 
         assert len(log_error_messages) == 0, f"Error log found: {log_error_messages}"
