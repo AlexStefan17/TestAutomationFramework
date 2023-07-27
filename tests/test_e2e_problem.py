@@ -57,6 +57,7 @@ class TestOrderStandard(BaseClass):
             log.error(error_message)
             log_error_messages.append(error_message)
 
+        log.info("##### 4. Click on checkout button step #####")
         checkout = CheckOutPage(self.driver)
         checkout.checkout().click()
         checkout.set_first_name().send_keys("Da")
@@ -95,6 +96,7 @@ class TestOrderStandard(BaseClass):
             log.error(error_message)
             log_error_messages.append(error_message)
 
+        log.info("##### 5. Click on finish button step #####")
         checkout.finish()
         checkout.back_to_products()
         assert len(log_error_messages) == 0, f"Error log found: {log_error_messages}"

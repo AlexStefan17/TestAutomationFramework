@@ -4,7 +4,6 @@ import pytest
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
-from PageObjects.Cart import CartPage
 from PageObjects.Price import Price
 from TestData.Login import LoginData
 from utilities.BaseClass import BaseClass
@@ -14,7 +13,7 @@ from selenium.webdriver.support.select import Select
 
 class TestOrderStandard(BaseClass):
 
-    @pytest.fixture(params=LoginData.test_StandardLogin_data)
+    @pytest.fixture(params=LoginData.test_Performance_Login_data)
     def get_data(self, request):
         return request.param
 
@@ -22,7 +21,7 @@ class TestOrderStandard(BaseClass):
         log = super().get_logger()
         log_error_messages = []
         prices = Price(self.driver)
-        # cart = CartPage(self.driver)
+
         # Login step
         log.info("##### 1. Login step #####")
 
@@ -47,28 +46,13 @@ class TestOrderStandard(BaseClass):
                 log.error(error_message)
                 log_error_messages.append(error_message)
 
-        log.info("##### 3. Click on cart button step #####")
+        log.info("##### 2. Click on cart button step #####")
         prices.get_cart_link()
-
-        log.info("##### 4. Remove items from cart #####")
-        cart = CartPage(self.driver)
-        for index, item in enumerate(items[:(len(items) // 2)]):
-            all_items = int(prices.get_cart_number())
-            cart.remove_item(index)
-            all_items -= 1
-            if all_items == int(prices.get_cart_number()):
-                log.info(f"Cart number is correctly, expected = {index}, actually = {prices.get_cart_number()}")
-            else:
-                error_message = f"Cart number is incorrectly, expected = {index}, actually = {prices.get_cart_number()}"
-                log.error(error_message)
-                log_error_messages.append(error_message)
-            if index == 2:
-                break
-
-        if int(prices.get_cart_number()) == len(items) // 2:
-            log.info(f"Number of items from cart is correctly")
+        number_cart_items = prices.get_cart_number()
+        if int(number_cart_items) == len(items):
+            log.info(f"Cart number is correctly, expected = {items}, actually = {number_cart_items}")
         else:
-            error_message = f"Cart number is incorrectly"
+            error_message = "Number of items is different"
             log.error(error_message)
             log_error_messages.append(error_message)
 

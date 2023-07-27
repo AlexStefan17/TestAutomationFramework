@@ -4,7 +4,6 @@ import pytest
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
-from PageObjects.Cart import CartPage
 from PageObjects.Price import Price
 from TestData.Login import LoginData
 from utilities.BaseClass import BaseClass
@@ -12,17 +11,17 @@ from PageObjects.Login import Login
 from selenium.webdriver.support.select import Select
 
 
-class TestOrderStandard(BaseClass):
+class TestDelete(BaseClass):
 
-    @pytest.fixture(params=LoginData.test_StandardLogin_data)
+    @pytest.fixture(params=LoginData.test_Performance_Login_data)
     def get_data(self, request):
         return request.param
 
-    def test_order(self, get_data):
+    def test_delete(self, get_data):
         log = super().get_logger()
         log_error_messages = []
         prices = Price(self.driver)
-        # cart = CartPage(self.driver)
+
         # Login step
         log.info("##### 1. Login step #####")
 
@@ -47,14 +46,10 @@ class TestOrderStandard(BaseClass):
                 log.error(error_message)
                 log_error_messages.append(error_message)
 
-        log.info("##### 3. Click on cart button step #####")
-        prices.get_cart_link()
-
-        log.info("##### 4. Remove items from cart #####")
-        cart = CartPage(self.driver)
+        log.info("##### 3. Remove item from cart #####")
         for index, item in enumerate(items[:(len(items) // 2)]):
             all_items = int(prices.get_cart_number())
-            cart.remove_item(index)
+            prices.remove_from_cart(index)
             all_items -= 1
             if all_items == int(prices.get_cart_number()):
                 log.info(f"Cart number is correctly, expected = {index}, actually = {prices.get_cart_number()}")

@@ -14,7 +14,7 @@ from selenium.webdriver.support.select import Select
 
 class TestOrderStandard(BaseClass):
 
-    @pytest.fixture(params=LoginData.test_StandardLogin_data)
+    @pytest.fixture(params=LoginData.test_Performance_Login_data)
     def get_data(self, request):
         return request.param
 

@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class CartPage:
 
-    def _init_(self, driver):
+    def __init__(self, driver):
         self.driver = driver
 
     items = (By.XPATH, "//div[@class='cart_item']")
