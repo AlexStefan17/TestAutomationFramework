@@ -16,17 +16,21 @@
    ```
 3. Usage
    You can run individual tests by running them as a normal code file or using pytest flags line.
+   When you are running test if you wanna exit headless mode of the browser comment this line of code
+   ```
+   chrome_options.add_argument('--headless')
+   ```
    How to run a single test using pytest flag: pytest test_1
    If you write pytest in command line it will run all the tests.
    To generate XML raport you can use pytest --browser_name chrome --html=reports.html
    Another topic you can use it is to integrate this test framework with Jenkins to automate the build and see the statistics of the tests.
    This is the command line that I use for Jenkins build that generate XML raports.
-```
-#!/bin/bash
-cd tests
-pytest --browser_name chrome --html=$WORKSPACE/reports/reports.html -v --junitxml="result.xml"
-```
-This command is for Post-build Actions where you select Publish JUnit test result report from the dropdown menu.
-```
-  tests/*.xml
-```
+   ```
+   #!/bin/bash
+   cd tests
+   pytest --browser_name chrome --html=$WORKSPACE/reports/reports.html -v --junitxml="result.xml"
+   ```
+   This command is for Post-build Actions where you select Publish JUnit test result report from the dropdown menu.
+   ```
+   tests/*.xml
+   ```
